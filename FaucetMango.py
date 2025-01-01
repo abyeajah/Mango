@@ -19,7 +19,7 @@ def get_random_user_agent():
 
 payload = {
     "FixedAmountRequest": {
-        "recipient": "ganti dengan address mango mango kalian"
+        "recipient": "0xe177c13ba1ceb4a93eb322a4a96d2dd3a7d739ae1a2847d252caafe39970aa6c"
     }
 }
 
