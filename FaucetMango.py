@@ -17,6 +17,12 @@ def get_random_user_agent():
         user_agent = ua.random
     return user_agent
 
+# Proxy configuration
+PROXY = {
+    "http": "http://username:password@ip:port",
+    "https": "http://username:password@ip:port"
+}
+
 payload = {
     "FixedAmountRequest": {
         "recipient": "0xe177c13ba1ceb4a93eb322a4a96d2dd3a7d739ae1a2847d252caafe39970aa6c"
@@ -46,7 +52,8 @@ try:
             "sec-ch-ua-platform": '"Windows"',
         }
 
-        response = requests.post(url, headers=headers, data=json.dumps(payload))
+        # Adding proxy to the request
+        response = requests.post(url, headers=headers, data=json.dumps(payload), proxies=PROXY)
         delay = random.uniform(2, 3)
 
         if response.status_code == 201:
